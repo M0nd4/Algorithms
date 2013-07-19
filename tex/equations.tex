@@ -20,5 +20,12 @@ When $x < 1$, we have the approximation:
   1 + x \leq e^{x} \leq 1 + x + x^{2}
 \end{equation}
 
+The Master Method to determine the runtime for recursive algorithms: \\
+\\
+if $T(n) \leq aT(\frac{n}{b}) + O(n^d)$, then
+\begin{equation}
+  T(n) = \begin{cases} O(n^d\log n), & \mbox{if } a = b^d\mbox{ (Case 1)} \\ O(n^d), & \mbox{if } a < b^d\mbox{ (Case 2)} \\
+  O(n^{\log_b a}), & \mbox{if } a > b^d\mbox{ (Case 3)} \end{cases}
+\end{equation}
 \end{document}
 

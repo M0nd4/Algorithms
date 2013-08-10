@@ -46,7 +46,9 @@ def short_path(G,S):
     B = {S:[]} # computed shortest path (names of nodes along path)
     while X != set(G.keys()):
         # choose the next edge with the shortest path from current node
-        mindist = min([A[x] + min([b for a,b in G[x] if a not in X]) for x in X if [b for a,b in G[x] if a not in X]!=[]])
+        minval = ['+inf']
+        mindist = min(A[x] + min([b for a, b in G[x] if a not in X] + minval) for x in X)
+        # mindist = min([A[x] + min([b for a,b in G[x] if a not in X]) for x in X if [b for a,b in G[x] if a not in X]!=[]])
         nextedge = {x:[(a,b) for a,b in G[x] if b==mindist-A[x] and a not in X] for x in X}
         nextedge = {i:j for i,j in nextedge.items() if j!=[]}
         leavingnode = nextedge.keys()[0]
@@ -56,7 +58,7 @@ def short_path(G,S):
         B[nextnode] = B[leavingnode]+[leavingnode]
     return A,B
 
-dist,paths = short_path(G,1)
+dist,paths = short_path(Gdict,1)
 
 ## compute the shortest path between vertex 1 and the following 
 ##  vertices: 7,37,59,82,99,115,133,165,188,197.

@@ -32,3 +32,15 @@ for t in range(-10000,10001):
             count += 1
             print(count)
             break
+## count = 427, hours to run though
+
+count = 0
+for t in range(-100,100):
+    if t%50 == 0:
+        print(t)
+    for x in A:
+        if t-x in A:
+            count += 1
+            print(count)
+            break
+## count = 5

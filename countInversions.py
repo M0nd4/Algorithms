@@ -28,6 +28,8 @@ def simple_count_inversions (intList):
 # fast version: divide into two, recursively sort, merge back together
 def merge_and_count(a, b):
     assert a == sorted(a) and b == sorted(b) # checks they are sorted
+    print(a)
+    print(b)
     c = []
     count = 0
     i, j = 0, 0
